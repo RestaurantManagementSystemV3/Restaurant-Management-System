@@ -1,0 +1,284 @@
+/* calisan-style.css */
+
+/* --- Çalışan Paneli Sipariş Listeleri --- */
+.siparis-listesi {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+  
+.siparis-listesi li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* <<< BUNU WRAP DEĞİL YAPMA */
+    padding: 15px 10px;
+    gap: 10px;
+    border-bottom: 1px solid #f0f0f0;                /* Sarma olursa veya dikeyde boşluk için */
+}
+.siparis-listesi li:last-child {
+    border-bottom: none;
+}
+
+#calisan-icerik {
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+  
+
+.siparis-listesi li:hover { /* Hover efekti */
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease;
+}
+
+/* Sipariş Bilgisi (Sol Taraf) */
+.siparis-listesi li > span {
+    font-weight: 500;
+    flex-grow: 1;
+    margin-right: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: unset;
+}
+
+/* Butonları Saran Div (Sağ Taraf) */
+.siparis-actions {
+    display: flex;        /* İçindeki butonları yan yana dizer */
+    flex-shrink: 0;       /* Buton grubunun daralmasını engeller */
+    gap: 8px;             /* Butonlar arası boşluk */
+    margin-left: auto; /* <<< BU EN ÖNEMLİSİ */
+    /* align-items: center; Zaten li'den alıyor olmalı */
+}
+
+/* Aksiyon Butonları */
+.siparis-actions button {
+    padding: 6px 12px;
+    font-size: 0.9em;
+    margin-left: 0; /* Gap kullanıldığı için margin'e gerek yok */
+     /* Renkler style.css'teki .btn-* sınıflarından gelecek */
+}
+
+/* Sipariş Detay Alanı (Altta) */
+.siparis-detay {
+    background-color: var(--light-color);
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-top: 10px; /* Üstündeki elemanlardan ayırmak için */
+    border-radius: 6px;
+    flex-basis: 100%; /* Tam genişlik kaplayarak alta kayar */
+    font-size: 0.95em;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    /* display: none; JS tarafından yönetilir */
+}
+.siparis-detay ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 5px 0 10px 0;
+}
+.siparis-detay ul li {
+    padding: 4px 0;
+    border-bottom: 1px dotted #ddd;
+}
+.siparis-detay ul li:last-child { border-bottom: none;}
+
+.siparis-detay p { /* Toplam tutar */
+    margin-top: 10px;
+    text-align: right;
+    font-size: 1.05em;
+}
+
+
+.siparis-listesi li:only-child:hover {
+    background-color: transparent;
+}
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+  
+  .toast {
+    background-color: #333;
+    color: #fff;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    opacity: 0.95;
+    font-size: 0.95em;
+    animation: slideIn 0.4s ease, fadeOut 0.5s ease 2.5s forwards;
+  }
+  
+  .toast.success { background-color: #28a745; }  /* Yeşil */
+  .toast.error   { background-color: #dc3545; }  /* Kırmızı */
+  .toast.warning { background-color: #ffc107; color: #000; }  /* Sarı */
+  
+  @keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to   { transform: translateX(0); opacity: 0.95; }
+  }
+  
+  @keyframes fadeOut {
+    to   { opacity: 0; transform: translateX(100%); }
+  }
+  
+.hesap-ayarlari {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px 30px;
+  background: #f8f8f8;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.hesap-ayarlari h3 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.hesap-ayarlari label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.hesap-ayarlari input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+.hesap-ayarlari .btn-info {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: #2ba3c6;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.hesap-ayarlari .btn-info:hover {
+  background-color: #1c8bad;
+}
+#garson-profil-guncelleme {
+  margin-top: 30px;
+  padding: 10px;
+ /* Arka plan düzleştirildi */
+  border-top: 1px solid #ccc;
+}
+
+  .yonetim-form { /* Formun bulunduğu sütun */
+    max-width: 500px;        /* Genişlik sınırlaması */
+    margin: 0 auto;          /* Ortala */
+    width: 100%;             /* Mobil uyumluluk */
+    text-align: left;
+}
+
+.yonetim-form h3, .liste-alani h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.yonetim-form label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    display: block;
+    margin-top: 15px;
+}
+.yonetim-form label:first-of-type {
+    margin-top: 0;
+}
+
+.yonetim-form input[type="text"],
+.yonetim-form input[type="password"],
+.yonetim-form input[type="number"],
+.yonetim-form select,
+.yonetim-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 0.95em;
+}
+.yonetim-form textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+.yonetim-form input:focus, .yonetim-form textarea:focus {
+     border-color: var(--primary-color);
+     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+     outline: none;
+ }
+ .yonetim-form input[type="number"] {
+     padding-right: 5px;
+ }
+
+.yonetim-form .form-actions { /* Kaydet/Temizle butonları sarmalayıcı */
+    margin-top: 20px;
+}
+#calisan-profil {
+    padding: 25px 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    
+}
+
+#calisan-profil h3 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    color: #444;
+    font-weight: 600;
+    border-bottom: 1px solid #9b9b9b;
+    padding-bottom: 10px;
+}
+
+#calisan-profil input[type="password"],
+#calisan-profil input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+#calisan-profil button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95em;
+    cursor: pointer;
+}
+
+#garson-guncelle-btn {
+    background-color: #007bff;
+    color: white;
+    margin-right: 10px;
+}
+
+#garson-hesap-sil-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* --- BURAYA KADAR OLAN KISMI GÜNCELLE/DEĞİŞTİR --- */
